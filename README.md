@@ -1,39 +1,29 @@
 # Flutter Lab Exam
 
 8 Flutter lab questions (each with part A and part B — 16 programs in total),
-with the Dart / Flutter code and the expected output for each one.
+with Dart / Flutter code and expected-output reference images.
 
 ## View the site
 
 Live site (GitHub Pages): **https://crazyvishnu.github.io/exam/**
 
-Or open `index.html` in any browser — no build step needed.
+Or open `index.html` in a browser — no build step or frontend framework required.
 
-## Layout
+## Workspace layout
 
-The site looks like DartPad (dark editor, Run button, code on top):
+The exam viewer uses a DartPad-inspired, three-pane workspace:
 
-1. **Code** — the answer program, with Dart syntax highlighting and a
-   **Copy code** button (top bar, next to Run) plus a Copy button on each
-   file tab. For Question 8B there are two files (`main.dart` and
-   `widget_test.dart`); the top Copy button copies both files.
-2. **Output** — the expected output preview for that program.
-   The **Run** button scrolls to it.
-3. **Question** — the question text sits at the bottom, so you only see it
-   after scrolling down.
-4. **Bottom navigation** — tap a number (1A, 1B, 2A … 8B) at the very bottom
-   to switch questions.
+1. **Project explorer** — shows the `lib` source file and the test file folder when the selected question has multiple files.
+2. **Code editor** — dark, line-numbered Dart source with syntax highlighting, tabs for multi-file questions, and copy controls.
+3. **Preview** — shows the expected-output reference image for the selected question. The mobile/web selector changes the preview frame size.
+4. **Problems / Console** — indicates that this static site is a source and preview viewer; it does not compile or execute Flutter code.
+5. **Question details** — expand the collapsible section under the editor to read the full exam question.
+6. **Question navigation** — use the bottom bar to switch among 1A through 8B.
+
+The **Run** control selects the expected-output reference. To actually compile and run the Dart/Flutter source, copy it into DartPad or a Flutter project.
 
 ## Files
 
-- `index.html`, `styles.css`, `app.js` — the site (static, no framework)
-- `images/` — 16 expected-output previews (SVG)
-- `code/` — the Dart source files for all 16 answers
-
-## Note on outputs
-
-No Dart/Flutter SDK was used to produce these: the output images are
-**expected-output previews** drawn from tracing each program
-(console output for Q1A / Q2A / Q3A, phone mockups for the Flutter UIs).
-They are labelled “Expected output” on the site. Run the code in DartPad
-or Android Studio to see the real output.
+- `index.html`, `styles.css`, `app.js` — static exam viewer
+- `images/` — 16 expected-output reference images
+- `code/` — Dart source files for all 16 answers
