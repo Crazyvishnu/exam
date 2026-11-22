@@ -1,52 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flutter Lab Exam — DartPad style</title>
-<link rel="stylesheet" href="styles.css">
-</head>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1b2836"><title>Flutter Lab Exam — DartPad Workspace</title>
+<link rel="stylesheet" href="styles.css"></head>
 <body>
-<header class="topbar">
-  <div class="brand"><span class="diamond">&#9670;</span> DartPad <small>Flutter Lab Exam &bull; MGIT</small></div>
-  <span class="qpos" id="qpos">Question 1A &bull; 1 of 16</span>
-  <button class="btn btn-run" id="runBtn" type="button">&#9654; Run</button>
-  <button class="btn btn-copy" id="copyBtn" type="button">Copy code</button>
+<header class="workspace-topbar">
+  <div class="brand"><span class="dart-mark">◆</span><strong>DartPad</strong><span class="brand-sub">Flutter Lab Exam • MGIT</span></div>
+  <div class="top-actions"><span class="qpos" id="qpos">Question 1A • 1 of 16</span>
+    <button class="tool-btn" id="reloadBtn" type="button" title="Reset preview">↻</button>
+    <button class="btn btn-run" id="runBtn" type="button">▶ <span>Run</span></button>
+    <button class="btn btn-copy" id="copyBtn" type="button">Copy code</button></div>
 </header>
-
-<main>
-  <section id="editorSec">
-    <h2>Code <span class="tag">Dart / Flutter</span></h2>
-    <div class="editor" id="editor"></div>
-    <div class="note" id="pubNote" hidden></div>
-  </section>
-
-  <section id="output">
-    <h2>Output <span class="tag">Expected output</span></h2>
-    <div class="output-card">
-      <img id="outputImg" src="" alt="Expected output">
-      <p class="cap">Expected output preview &mdash; drawn from the program, not a real DartPad screenshot.</p>
-    </div>
-  </section>
-
-  <section id="questionSec">
-    <h2>Question <span class="tag">scroll down to see it</span></h2>
-    <div class="qcard">
-      <h3 id="qHeading">Question 1A</h3>
-      <p class="qtitle" id="qTitle"></p>
-      <p id="qText"></p>
-    </div>
-  </section>
-
-  <p class="foot">Flutter Lab Exam &bull; 8 questions &bull; 16 programs (A + B) &bull; Code + expected output for each.</p>
-</main>
-
-<nav class="bottomnav" aria-label="Questions">
-  <span class="lbl">Questions:</span>
-  <div class="nums" id="qnav"></div>
-</nav>
-
-<noscript><p style="text-align:center;padding:20px;">This page needs JavaScript to switch between questions.</p></noscript>
-<script src="app.js"></script>
-</body>
-</html>
+<div class="workspace">
+  <aside class="explorer"><div class="panel-heading"><span>EXPLORER</span><span>＋　‹</span></div>
+    <div class="tree-root"><span>⌄</span> <span class="folder-icon">▰</span> lib</div>
+    <div class="tree-file active" id="mainFileTree"><span class="file-icon">◆</span> main.dart</div>
+    <div class="tree-file" id="testFileTree" hidden><span class="file-icon test-icon">◇</span> widget_test.dart</div>
+    <div class="tree-file muted-file"><span>ⓘ</span> README.md</div><div class="tree-file muted-file"><span class="yaml-icon">!</span> pubspec.yaml</div>
+    <div class="explorer-spacer"></div><div class="project-info"><span class="status-dot"></span> Flutter project</div>
+  </aside>
+  <main class="editor-column">
+    <div class="editor-toolbar"><div class="breadcrumbs"><span>lib</span><span>›</span><strong id="crumbFile">main.dart</strong></div>
+      <div class="editor-tools"><span class="language-tag">Dart</span><button class="tool-btn" id="editorCopyBtn" title="Copy active file">⧉</button></div></div>
+    <div class="editor-tabs" id="editorTabs"></div>
+    <section class="editor-pane"><div class="editor" id="editor"></div><div class="note" id="pubNote" hidden></div></section>
+    <section class="question-drawer" id="questionSec">
+      <div class="drawer-heading"><span>QUESTION DETAILS</span><button class="tool-btn" id="questionToggle" type="button" aria-expanded="false">⌃</button></div>
+      <div class="qcard"><div class="question-kicker" id="qHeading">Question 1A</div><h2 id="qTitle"></h2><p id="qText"></p></div>
+    </section>
+    <section class="console-panel"><div class="console-tabs">
+      <button class="console-tab active" type="button">Problems <span class="problem-count">0</span></button>
+      <button class="console-tab" type="button">Console</button><span class="console-chevron">⌄</span></div>
+      <div class="console-content" id="consoleContent"><span class="success-tick">✓</span> No problems detected in the displayed source.</div></section>
+  </main>
+  <aside class="preview-column"><div class="preview-toolbar"><button class="collapse-preview" id="previewToggle" type="button">›</button>
+    <div class="preview-actions"><span class="preview-status"><i></i> Expected preview</span><button class="device-select" type="button">▣　Mobile　⌄</button><button class="tool-btn" id="expandPreview" type="button">⛶</button></div></div>
+    <div class="preview-stage" id="output"><div class="device-frame"><div class="device-screen"><img id="outputImg" src="" alt="Expected output preview"></div></div><div class="preview-caption">Expected output preview</div></div>
+    <div class="preview-foot"><span class="status-dot"></span> Preview reference • not a live Flutter build</div>
+  </aside>
+</div>
+<nav class="bottomnav" aria-label="Questions"><span class="lbl">Questions</span><div class="nums" id="qnav"></div></nav>
+<noscript><p class="noscript">Enable JavaScript to switch between exam questions.</p></noscript>
+<script src="app.js"></script></body></html>
