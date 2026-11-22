@@ -279,7 +279,7 @@ function setActiveFile(index) {
   document.querySelectorAll(".file-pane").forEach(function (pane) {
     pane.style.display = Number(pane.dataset.file) === index ? "block" : "none";
   });
-  document.getElementById("crumbFile").textContent = current.files[index].name;
+  document.getElementById("crumbFile").textContent = current.files[index].name === "widget_test.dart" ? "test/widget_test.dart" : "lib/" + current.files[index].name;
   document.getElementById("editorCopyBtn").onclick = function () { copyText(current.files[index].code, this); };
   document.getElementById("mainFileTree").classList.toggle("active", index === 0);
   document.getElementById("testFileTree").classList.toggle("active", index === 1);
@@ -319,11 +319,12 @@ function showQuestion(id, scrollTop) {
     ed.appendChild(pane);
   });
   activeFile = 0;
-  document.getElementById("crumbFile").textContent = q.files[0].name;
+  document.getElementById("crumbFile").textContent = "lib/" + q.files[0].name;
   document.getElementById("mainFileTree").innerHTML = '<span class="file-icon">◆</span> ' + escHtml(q.files[0].name);
   document.getElementById("mainFileTree").classList.add("active");
   var testTree = document.getElementById("testFileTree");
   testTree.hidden = q.files.length < 2;
+  document.getElementById("testFolderRoot").hidden = q.files.length < 2;
   if (q.files.length > 1) testTree.innerHTML = '<span class="file-icon test-icon">◇</span> ' + escHtml(q.files[1].name);
   testTree.classList.remove("active");
   testTree.style.display = q.files.length > 1 ? "flex" : "none";
