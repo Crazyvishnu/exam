@@ -26,3 +26,7 @@ button{font:inherit;cursor:pointer}
 .preview-column.collapsed{display:none}.workspace.preview-hidden{grid-template-columns:200px minmax(400px,1fr)}.noscript{padding:20px}
 @media(max-width:900px){.workspace{grid-template-columns:155px minmax(360px,1fr) 290px}.brand-sub{display:none}.device-frame{width:95%;height:55vh}}
 @media(max-width:650px){html,body{overflow:auto;height:auto;min-height:100%}.workspace{height:auto;min-height:calc(100vh - 100px);grid-template-columns:1fr;grid-template-rows:auto minmax(540px,1fr) minmax(360px,auto)}.explorer{display:none}.editor-column{min-height:620px}.preview-column{min-height:420px}.workspace.preview-hidden{grid-template-columns:1fr}.workspace-topbar{height:auto;min-height:50px}.brand{font-size:17px}.brand-sub{display:none}.qpos{display:none}.top-actions{gap:5px}.btn{padding:6px 9px;font-size:11px}.bottomnav{padding:0 6px;gap:6px}.bottomnav .lbl{display:none}.device-frame{height:330px;width:230px}.question-drawer{max-height:none}}
+
+/* Optional preview modes */
+.device-frame.desktop{width:min(100%,540px);height:min(68vh,560px);border-radius:10px}
+#output.expanded .device-frame{width:min(100%,520px);height:min(86vh,740px)}
