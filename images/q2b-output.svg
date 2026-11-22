@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="720" viewBox="0 0 400 720">
+<rect x="4" y="4" width="392" height="712" rx="30" fill="#111111"/>
+<rect x="14" y="14" width="372" height="692" rx="22" fill="#ffffff"/>
+<text x="34" y="44" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#111111" font-weight="bold">9:41</text>
+<rect x="308" y="32" width="52" height="13" rx="3" fill="none" stroke="#111111" stroke-width="1.5"/>
+<rect x="310" y="34" width="42" height="9" rx="2" fill="#111111"/>
+<rect x="14" y="56" width="372" height="56" fill="#2196f3"/>
+<text x="34" y="92" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#ffffff" font-weight="bold">Shopping App</text>
+<rect x="34" y="140" width="332" height="76" rx="10" fill="#f5f5f5"/>
+<rect x="65.92" y="172.72" width="28.16" height="22.880000000000003" rx="3.52" fill="none" stroke="#555555" stroke-width="2.6399999999999997"/><path d="M 72.08 172.72 A 7.92 7.92 0 0 1 87.92 172.72" fill="none" stroke="#555555" stroke-width="2.6399999999999997"/>
+<text x="120" y="172" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#111111" font-weight="bold">Shoes</text>
+<text x="120" y="200" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#555555">₹1000</text>
+<rect x="34" y="232" width="332" height="76" rx="10" fill="#f5f5f5"/>
+<rect x="65.92" y="264.72" width="28.16" height="22.880000000000003" rx="3.52" fill="none" stroke="#555555" stroke-width="2.6399999999999997"/><path d="M 72.08 264.72 A 7.92 7.92 0 0 1 87.92 264.72" fill="none" stroke="#555555" stroke-width="2.6399999999999997"/>
+<text x="120" y="264" font-family="DejaVu Sans, sans-serif" font-size="19" fill="#111111" font-weight="bold">Watch</text>
+<text x="120" y="292" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#555555">₹2000</text>
+<text x="200" y="360" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#888888" text-anchor="middle">Tap a product to see details</text>
+<text x="140" y="640" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#2196f3" text-anchor="middle" font-weight="bold">Home</text>
+<text x="260" y="640" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#555555" text-anchor="middle">Cart</text>
+<text x="200" y="694" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#888888" text-anchor="middle">Home screen  •  tap a product for details</text>
+</svg>

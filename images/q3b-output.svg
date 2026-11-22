@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="720" viewBox="0 0 400 720">
+<rect x="4" y="4" width="392" height="712" rx="30" fill="#111111"/>
+<rect x="14" y="14" width="372" height="692" rx="22" fill="#ffffff"/>
+<text x="34" y="44" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#111111" font-weight="bold">9:41</text>
+<rect x="308" y="32" width="52" height="13" rx="3" fill="none" stroke="#111111" stroke-width="1.5"/>
+<rect x="310" y="34" width="42" height="9" rx="2" fill="#111111"/>
+<rect x="14" y="56" width="372" height="56" fill="#2196f3"/>
+<text x="34" y="92" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#ffffff" font-weight="bold">Student Cards</text>
+<rect x="34" y="140" width="332" height="92" rx="12" fill="#bbdefb"/><circle cx="84" cy="178.08" r="12.32" fill="#5c6bc0"/><path d="M 65.52 205.8 A 18.48 18.48 0 0 1 102.48 205.8 Z" fill="#5c6bc0"/><text x="124" y="180" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#111111" font-weight="bold">Vishnu</text><text x="124" y="210" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#555555">CSE</text>
+<rect x="34" y="252" width="332" height="92" rx="12" fill="#bbdefb"/><circle cx="84" cy="290.08" r="12.32" fill="#5c6bc0"/><path d="M 65.52 317.8 A 18.48 18.48 0 0 1 102.48 317.8 Z" fill="#5c6bc0"/><text x="124" y="292" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#111111" font-weight="bold">Rahul</text><text x="124" y="322" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#555555">IT</text>
+<text x="200" y="694" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#888888" text-anchor="middle">Reusable StudentCard widget × 2</text>
+</svg>

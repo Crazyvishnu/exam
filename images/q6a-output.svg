@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="720" viewBox="0 0 400 720">
+<rect x="4" y="4" width="392" height="712" rx="30" fill="#111111"/>
+<rect x="14" y="14" width="372" height="692" rx="22" fill="#ffffff"/>
+<text x="34" y="44" font-family="DejaVu Sans, sans-serif" font-size="15" fill="#111111" font-weight="bold">9:41</text>
+<rect x="308" y="32" width="52" height="13" rx="3" fill="none" stroke="#111111" stroke-width="1.5"/>
+<rect x="310" y="34" width="42" height="9" rx="2" fill="#111111"/>
+<rect x="14" y="56" width="372" height="56" fill="#2196f3"/>
+<text x="34" y="92" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#ffffff" font-weight="bold">Combined Layout</text>
+<rect x="34" y="140" width="332" height="170" rx="10" fill="#64b5f6"/>
+<text x="54" y="288" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#ffffff" font-weight="bold">MGIT</text>
+<text x="200" y="370" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#111111" text-anchor="middle">Welcome to MGIT</text>
+<text x="200" y="402" font-family="DejaVu Sans, sans-serif" font-size="17" fill="#555555" text-anchor="middle">UI Design using Flutter</text>
+<path d="M 85.2 492.2 L 105 470.2 L 124.8 492.2 L 119.08 492.2 L 119.08 509.8 L 90.92 509.8 L 90.92 492.2 Z" fill="#555555"/>
+<circle cx="200" cy="482.08" r="12.32" fill="#555555"/><path d="M 181.52 509.8 A 18.48 18.48 0 0 1 218.48 509.8 Z" fill="#555555"/>
+<rect x="240.0" y="468" width="110" height="44" rx="22.0" fill="#2196f3"/><text x="295" y="495.76" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#ffffff" text-anchor="middle" font-weight="bold">Start</text>
+<text x="200" y="694" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#888888" text-anchor="middle">Stack banner + Column + Row</text>
+</svg>

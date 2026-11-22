@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flutter Lab Exam — DartPad style</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="diamond">&#9670;</span> DartPad <small>Flutter Lab Exam &bull; MGIT</small></div>
+  <span class="qpos" id="qpos">Question 1A &bull; 1 of 16</span>
+  <button class="btn btn-run" id="runBtn" type="button">&#9654; Run</button>
+  <button class="btn btn-copy" id="copyBtn" type="button">Copy code</button>
+</header>
+
+<main>
+  <section id="editorSec">
+    <h2>Code <span class="tag">Dart / Flutter</span></h2>
+    <div class="editor" id="editor"></div>
+    <div class="note" id="pubNote" hidden></div>
+  </section>
+
+  <section id="output">
+    <h2>Output <span class="tag">Expected output</span></h2>
+    <div class="output-card">
+      <img id="outputImg" src="" alt="Expected output">
+      <p class="cap">Expected output preview &mdash; drawn from the program, not a real DartPad screenshot.</p>
+    </div>
+  </section>
+
+  <section id="questionSec">
+    <h2>Question <span class="tag">scroll down to see it</span></h2>
+    <div class="qcard">
+      <h3 id="qHeading">Question 1A</h3>
+      <p class="qtitle" id="qTitle"></p>
+      <p id="qText"></p>
+    </div>
+  </section>
+
+  <p class="foot">Flutter Lab Exam &bull; 8 questions &bull; 16 programs (A + B) &bull; Code + expected output for each.</p>
+</main>
+
+<nav class="bottomnav" aria-label="Questions">
+  <span class="lbl">Questions:</span>
+  <div class="nums" id="qnav"></div>
+</nav>
+
+<noscript><p style="text-align:center;padding:20px;">This page needs JavaScript to switch between questions.</p></noscript>
+<script src="app.js"></script>
+</body>
+</html>

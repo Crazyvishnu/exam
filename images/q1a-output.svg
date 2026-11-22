@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="312" viewBox="0 0 760 312">
+<rect x="0" y="0" width="760" height="312" rx="12" fill="#1e1e1e"/>
+<circle cx="28" cy="22" r="7" fill="#ff5f57"/><circle cx="52" cy="22" r="7" fill="#febc2e"/><circle cx="76" cy="22" r="7" fill="#28c840"/>
+<text x="108" y="29" font-family="DejaVu Sans Mono, monospace" font-size="15" fill="#9cdcfe">Console output</text>
+<line x1="0" y1="42" x2="760" y2="42" stroke="#333333" stroke-width="1"/>
+<text x="24" y="68" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#d4d4d4">Student Details</text>
+<text x="24" y="98" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#d4d4d4">Name: Vishnu</text>
+<text x="24" y="128" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#d4d4d4">Age: 20</text>
+<text x="24" y="158" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#d4d4d4">College: MGIT</text>
+<text x="24" y="188" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#d4d4d4">Roll Number: 101</text>
+<text x="24" y="218" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#d4d4d4">Percentage: 85.5</text>
+<text x="24" y="248" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#d4d4d4">Branch: CSE</text>
+<text x="24" y="278" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#d4d4d4">Is Student: true</text>
+</svg>
