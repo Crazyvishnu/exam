@@ -1,3 +1,86 @@
+
+/* DartPad reference typography, icon font and color tokens */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root{
+  --chrome:#1c2834;
+  --line:#263542;
+  --editor:#0e161f;
+  --muted:#9aa8b5;
+  --text:#dce3ea;
+}
+body{font-family:Roboto,Arial,sans-serif;background:#0e161f;color:#dce3ea}
+.workspace-topbar{height:50px;background:#1c2834;border-bottom:1px solid #263542;padding:0 12px}
+.brand{font-family:Roboto,Arial,sans-serif;font-size:21px;font-weight:400;gap:9px;color:#f2f5f8}
+.brand strong{font-size:21px;font-weight:500;letter-spacing:0}
+.dartpad-logo{width:31px;height:31px;display:block;flex:0 0 31px}
+.brand-sub{font-size:12px;color:#a9b6c2;font-weight:400}
+.material-icons{font-family:'Material Icons';font-weight:normal;font-style:normal;font-size:20px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;font-feature-settings:'liga'}
+.top-actions{gap:7px}
+.tool-btn{color:#d0dbe5;border-radius:3px;padding:5px 7px}
+.btn{font-family:Roboto,Arial,sans-serif;border-radius:4px;font-size:13px;font-weight:500}
+.btn-run{background:#168df2;min-width:80px;padding:7px 13px;display:inline-flex;align-items:center;justify-content:center;gap:4px}
+.btn-copy{border-color:#168df2;color:#80c4ff}
+.workspace{grid-template-columns:minmax(190px,13.2vw) minmax(420px,1fr) minmax(330px,26.2vw);height:calc(100vh - 100px)}
+.explorer{background:#0c141d;border-right:1px solid #273440;color:#d3dbe3}
+.panel-heading{height:39px;background:#0c141d;border-bottom:1px solid #263542;color:#b8c3ce;font-size:11px;letter-spacing:.25px;padding:0 10px}
+.panel-actions{font-size:18px;color:#aebbc7;display:flex;gap:12px}
+.tree-root,.tree-file{height:27px;font-size:12px;gap:7px;padding-left:9px}
+.tree-root{margin-top:5px;color:#e1e7ed}
+.tree-chevron{font-size:17px;color:#c5d0d9}
+.folder-icon{font-size:18px;color:#d2dbe4}
+.tree-file{padding-left:30px;color:#d6dfe8}
+.tree-file.active{background:#25384a;border-left:2px solid #168df2;padding-left:28px;color:#f2f6fa}
+.file-icon{font-size:15px;color:#64b5f6}
+.muted-file{color:#bac6d0}
+.muted-file .material-icons{font-size:15px;color:#aab8c5}
+.yaml-icon{color:#cf8fe8!important}
+.project-info{border-color:#273440;color:#9eacb9}
+.editor-column{background:#0e161f;border-right:1px solid #293744}
+.editor-toolbar{height:34px;background:#1c2834;border-bottom:1px solid #263542;padding:0 12px}
+.breadcrumbs{font-family:'Roboto Mono',monospace;font-size:11px;color:#aab8c5;gap:8px}
+.breadcrumbs strong{color:#e0e7ee}
+.language-tag{color:#9eafbf;font-size:11px}
+.editor-tabs{height:35px;background:#1c2834;border-bottom:1px solid #2a3946}
+.editor-tab{font-family:'Roboto Mono',monospace;font-size:12px;padding:0 13px;background:#1c2834;color:#dce4eb;border-right:1px solid #2b3a47}
+.editor-tab.active{background:#0e161f;border-top:2px solid #168df2}
+.dart-file-dot{font-size:11px;color:#69b8f5}
+.code{font-family:'Roboto Mono',monospace;font-size:13px;line-height:1.55;padding-top:6px}
+.cl .ln{flex-basis:49px;padding-right:15px;color:#81909e}
+.cl .lc{color:#d8e0e8}
+.tok-k{color:#4dd0a4}
+.tok-s{color:#ff6b8a}
+.tok-c{color:#84929f}
+.tok-n{color:#b5d99c}
+.tok-a{color:#e8c477}
+.tok-t{color:#4fc3f7}
+.note{font-family:Roboto,Arial,sans-serif}
+.question-drawer{background:#14202b;border-top-color:#2a3946}
+.console-panel{background:#1c2834;border-top:1px solid #2c3a46}
+.console-tabs{height:34px;border-bottom:1px solid #273744;padding-left:12px;gap:0}
+.console-tab{padding:0 14px;font-family:Roboto,Arial,sans-serif;font-size:12px;color:#d0d9e1}
+.console-tab.active{background:#263747;border-bottom-color:#168df2;color:#fff}
+.problem-count{background:#168df2;color:#fff;border-radius:50%;min-width:15px;height:15px}
+.console-content{font-family:Roboto,Arial,sans-serif;font-size:12px;color:#e0e6ed;padding:12px}
+.preview-column{background:#1c2834}
+.preview-toolbar{height:34px;background:#1c2834;border-bottom:1px solid #2c3b48;padding:0 9px}
+.collapse-preview{font-size:20px;color:#d2dce5}
+.preview-actions{gap:7px}
+.preview-status{display:none}
+.device-select{display:inline-flex;align-items:center;gap:5px;background:#1b2936;border:1px solid #344655;color:#f0f4f7;font-family:Roboto,Arial,sans-serif;font-size:12px;padding:4px 8px;border-radius:3px}
+.device-select .material-icons{font-size:17px}
+.preview-stage{background:#1c2834;padding:14px 10px}
+.device-frame{width:min(100%,310px);height:min(72vh,610px);background:#0c141d;border:1px solid #4b5966;border-radius:11px;padding:6px;box-shadow:none}
+.device-screen{border-radius:6px}
+.preview-caption{font-family:Roboto,Arial,sans-serif;color:#9baab8}
+.preview-foot{background:#1c2834;color:#a8b6c3;border-top-color:#2b3a46}
+.bottomnav{background:#1c2834;border-top-color:#2b3a46}
+.qbtn{font-family:Roboto,Arial,sans-serif;background:#263746;border-color:#435565;border-radius:4px;font-size:12px}
+.qbtn.active{background:#168df2;border-color:#168df2}
+@media(max-width:900px){.workspace{grid-template-columns:155px minmax(360px,1fr) 290px}}
+@media(max-width:650px){.workspace{grid-template-columns:1fr}.workspace-topbar{background:#1c2834}}
+
 /* DartPad-inspired three-pane workspace */
 :root{color-scheme:dark;--chrome:#1b2836;--line:#304152;--editor:#0e1721;--muted:#8fa0b1;--text:#dce5ee}
 *{box-sizing:border-box}html,body{height:100%;margin:0;overflow:hidden}
