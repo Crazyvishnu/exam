@@ -5,28 +5,28 @@
 <link rel="stylesheet" href="styles.css"></head>
 <body>
 <header class="workspace-topbar">
-  <div class="brand"><span class="dart-mark">◆</span><strong>DartPad</strong><span class="brand-sub">Flutter Lab Exam • MGIT</span></div>
+  <div class="brand"><svg class="dartpad-logo" viewBox="0 0 42 42" role="img" aria-label="DartPad logo"><path fill="#42A5F5" d="M2 12.5 14.5 0H29L16.5 12.5 29 25H14.5z"/><path fill="#1976D2" d="M16.5 12.5 29 0l11 11-12 14z"/><path fill="#64B5F6" d="M2 29.5 16.5 15 29 27.5 14.5 42z"/><path fill="#0D47A1" d="M16.5 15 29 27.5 40 16.5 29 5z"/></svg><strong>DartPad</strong><span class="brand-sub">Flutter Lab Exam • MGIT</span></div>
   <div class="top-actions"><span class="qpos" id="qpos">Question 1A • 1 of 16</span>
-    <button class="tool-btn" id="reloadBtn" type="button" title="Reset preview">↻</button>
-    <button class="btn btn-run" id="runBtn" type="button">▶ <span>Run</span></button>
+    <button class="tool-btn material-icons" id="reloadBtn" type="button" title="Reset preview">refresh</button>
+    <button class="btn btn-run" id="runBtn" type="button"><span class="material-icons">bolt</span> <span>Run</span></button>
     <button class="btn btn-copy" id="copyBtn" type="button">Copy code</button></div>
 </header>
 <div class="workspace">
-  <aside class="explorer"><div class="panel-heading"><span>EXPLORER</span><span>＋　‹</span></div>
-    <div class="tree-root"><span>⌄</span> <span class="folder-icon">▰</span> lib</div>
-    <div class="tree-file active" id="mainFileTree"><span class="file-icon">◆</span> main.dart</div>
-    <div class="tree-root" id="testFolderRoot" hidden><span>⌄</span> <span class="folder-icon">▰</span> test</div>
-    <div class="tree-file" id="testFileTree" hidden><span class="file-icon test-icon">◇</span> widget_test.dart</div>
-    <div class="tree-file muted-file"><span>ⓘ</span> README.md</div><div class="tree-file muted-file"><span class="yaml-icon">!</span> pubspec.yaml</div>
+  <aside class="explorer"><div class="panel-heading"><span>EXPLORER</span><span class="material-icons panel-actions">add chevron_left</span></div>
+    <div class="tree-root"><span class="material-icons tree-chevron">keyboard_arrow_down</span><span class="material-icons folder-icon">folder</span> lib</div>
+    <div class="tree-file active" id="mainFileTree"><span class="material-icons file-icon">insert_drive_file</span> main.dart</div>
+    <div class="tree-root" id="testFolderRoot" hidden><span class="material-icons tree-chevron">keyboard_arrow_down</span><span class="material-icons folder-icon">folder</span> test</div>
+    <div class="tree-file" id="testFileTree" hidden><span class="material-icons file-icon test-icon">insert_drive_file</span> widget_test.dart</div>
+    <div class="tree-file muted-file"><span class="material-icons">info</span> README.md</div><div class="tree-file muted-file"><span class="material-icons yaml-icon">description</span> pubspec.yaml</div>
     <div class="explorer-spacer"></div><div class="project-info"><span class="status-dot"></span> Flutter project</div>
   </aside>
   <main class="editor-column">
     <div class="editor-toolbar"><div class="breadcrumbs"><span>lib</span><span>›</span><strong id="crumbFile">main.dart</strong></div>
-      <div class="editor-tools"><span class="language-tag">Dart</span><button class="tool-btn" id="editorCopyBtn" title="Copy active file">⧉</button></div></div>
+      <div class="editor-tools"><span class="language-tag">Dart</span><button class="tool-btn material-icons" id="editorCopyBtn" title="Copy active file">content_copy</button></div></div>
     <div class="editor-tabs" id="editorTabs"></div>
     <section class="editor-pane"><div class="editor" id="editor"></div><div class="note" id="pubNote" hidden></div></section>
     <section class="question-drawer" id="questionSec">
-      <div class="drawer-heading"><span>QUESTION DETAILS</span><button class="tool-btn" id="questionToggle" type="button" aria-expanded="false">⌃</button></div>
+      <div class="drawer-heading"><span>QUESTION DETAILS</span><button class="tool-btn material-icons" id="questionToggle" type="button" aria-expanded="false">expand_less</button></div>
       <div class="qcard"><div class="question-kicker" id="qHeading">Question 1A</div><h2 id="qTitle"></h2><p id="qText"></p></div>
     </section>
     <section class="console-panel"><div class="console-tabs">
@@ -34,8 +34,8 @@
       <button class="console-tab" type="button">Console</button><span class="console-chevron">⌄</span></div>
       <div class="console-content" id="consoleContent"><span class="success-tick">✓</span> No problems detected in the displayed source.</div></section>
   </main>
-  <aside class="preview-column"><div class="preview-toolbar"><button class="collapse-preview" id="previewToggle" type="button">›</button>
-    <div class="preview-actions"><span class="preview-status"><i></i> Expected preview</span><button class="device-select" type="button">▣　Mobile　⌄</button><button class="tool-btn" id="expandPreview" type="button">⛶</button></div></div>
+  <aside class="preview-column"><div class="preview-toolbar"><button class="collapse-preview material-icons" id="previewToggle" type="button">chevron_right</button>
+    <div class="preview-actions"><span class="preview-status"><i></i> Expected preview</span><button class="device-select" type="button"><span class="material-icons">phone_iphone</span> Mobile <span class="material-icons">arrow_drop_down</span></button><button class="tool-btn material-icons" id="expandPreview" type="button">open_in_full</button></div></div>
     <div class="preview-stage" id="output"><div class="device-frame"><div class="device-screen"><img id="outputImg" src="" alt="Expected output preview"></div></div><div class="preview-caption">Expected output preview</div></div>
     <div class="preview-foot"><span class="status-dot"></span> Preview reference • not a live Flutter build</div>
   </aside>
