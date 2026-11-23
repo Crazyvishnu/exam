@@ -49,7 +49,7 @@ The same questions are also shown at the bottom of each question page on the sit
 
 The site looks like DartPad (dark workspace, explorer, Run button, code on top):
 
-1. **Project explorer** — shows the `lib` source file, the `test` folder for multi-file questions, plus `README.md` (tap it to open all 8 questions in the repo README) and `pubspec.yaml`.
+1. **Project explorer** — shows the `lib` source file, the `test` folder for multi-file questions, plus `README.md` (tap it to see all 8 questions right inside the site) and `pubspec.yaml`.
 2. **Code** — the answer program, with Dart syntax highlighting and a **Copy code** button (top bar, next to Run) plus a Copy button on each file tab. For Question 8B there are two files (`main.dart` and `widget_test.dart`); the top Copy button copies both files.
 3. **Preview** — the expected output preview for that program. The **Run** button scrolls to it.
 4. **Question** — the question text sits in the **QUESTION DETAILS** drawer under the code, open by default so you can see it right away. Tap the **❓ Question** button in the top bar to jump straight to it, or the arrow in the drawer heading to fold it away.

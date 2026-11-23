@@ -419,6 +419,51 @@ document.querySelectorAll(".console-tab").forEach(function (tab, index) {
   });
 });
 
+/* ---------- README panel: all questions, shown inside the site ---------- */
+function buildReadmeList() {
+  var list = document.getElementById("readmeList");
+  list.innerHTML = "";
+  QUESTIONS.forEach(function (q) {
+    var card = document.createElement("div");
+    card.className = "rq-card";
+    var head = document.createElement("div");
+    head.className = "rq-head";
+    var h = document.createElement("strong");
+    h.textContent = "Question " + q.id;
+    var t = document.createElement("span");
+    t.textContent = q.title;
+    head.appendChild(h); head.appendChild(t);
+    var p = document.createElement("p");
+    p.textContent = q.question;
+    var btn = document.createElement("button");
+    btn.className = "rq-open"; btn.type = "button";
+    btn.textContent = "View program \u2192";
+    btn.addEventListener("click", function () {
+      closeReadme();
+      showQuestion(q.id, true);
+    });
+    card.appendChild(head); card.appendChild(p); card.appendChild(btn);
+    list.appendChild(card);
+  });
+}
+function openReadme() {
+  document.getElementById("readmePanel").hidden = false;
+  document.body.style.overflow = "hidden";
+}
+function closeReadme() {
+  document.getElementById("readmePanel").hidden = true;
+  document.body.style.overflow = "";
+}
+document.getElementById("readmeFile").addEventListener("click", openReadme);
+document.getElementById("readmeClose").addEventListener("click", closeReadme);
+document.getElementById("readmePanel").addEventListener("click", function (e) {
+  if (e.target === this) closeReadme();
+});
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeReadme();
+});
+buildReadmeList();
+
 var startId = "1A";
 var match = location.hash.match(/q=([1-8][AB])/);
 if (match) startId = match[1];

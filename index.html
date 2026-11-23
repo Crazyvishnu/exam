@@ -18,7 +18,7 @@
     <div class="tree-file active" id="mainFileTree"><span class="material-icons file-icon">insert_drive_file</span> main.dart</div>
     <div class="tree-root" id="testFolderRoot" hidden><span class="material-icons tree-chevron">keyboard_arrow_down</span><span class="material-icons folder-icon">folder</span> test</div>
     <div class="tree-file" id="testFileTree" hidden><span class="material-icons file-icon test-icon">insert_drive_file</span> widget_test.dart</div>
-    <div class="tree-file muted-file"><a class="tree-link" href="https://github.com/Crazyvishnu/exam#questions" target="_blank" rel="noopener" title="All 8 questions — in README.md"><span class="material-icons">info</span> README.md</a></div><div class="tree-file muted-file"><span class="material-icons yaml-icon">description</span> pubspec.yaml</div>
+    <div class="tree-file muted-file readme-file" id="readmeFile" title="Show all questions"><span class="material-icons">info</span> README.md</div><div class="tree-file muted-file"><span class="material-icons yaml-icon">description</span> pubspec.yaml</div>
     <div class="explorer-spacer"></div><div class="project-info"><span class="status-dot"></span> Flutter project</div>
   </aside>
   <main class="editor-column">
@@ -43,4 +43,13 @@
 </div>
 <nav class="bottomnav" aria-label="Questions"><span class="lbl">Questions</span><div class="nums" id="qnav"></div></nav>
 <noscript><p class="noscript">Enable JavaScript to switch between exam questions.</p></noscript>
+<div class="readme-panel" id="readmePanel" hidden>
+  <div class="readme-sheet">
+    <div class="readme-head">
+      <div class="readme-title"><strong>README.md</strong><span>All questions &mdash; Flutter Lab Exam</span></div>
+      <button class="readme-close" id="readmeClose" type="button" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="readme-list" id="readmeList"></div>
+  </div>
+</div>
 <script src="app.js"></script></body></html>

@@ -51,8 +51,27 @@ button{font-family:Roboto,Arial,sans-serif;cursor:pointer}
 .file-icon{font-size:15px;color:#64b5f6}
 .test-icon{color:#c29be8}
 .muted-file{color:#bac6d0}
-.tree-link{display:flex;align-items:center;gap:7px;color:inherit;text-decoration:none}
-.tree-link:hover{color:#fff}
+.readme-file{cursor:pointer}
+.readme-file:hover{background:#25384a;color:#fff}
+
+/* ---- README panel: all questions inside the site ---- */
+.readme-panel{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.72);display:flex;justify-content:center;padding:18px 12px}
+.readme-panel[hidden]{display:none}
+.readme-sheet{background:#1b2836;border:1px solid #2c3a46;border-radius:10px;max-width:760px;width:100%;max-height:100%;overflow-y:auto}
+.readme-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;background:#1b2836;border-bottom:1px solid #2c3a46;z-index:1}
+.readme-title{display:flex;flex-direction:column;gap:2px}
+.readme-title strong{color:#fff;font-size:16px}
+.readme-title span{color:#9aaab8;font-size:12.5px}
+.readme-close{font-family:inherit;font-size:16px;cursor:pointer;background:transparent;color:#c6d2dc;border:1px solid #3a4a58;border-radius:6px;width:34px;height:34px;flex:0 0 auto}
+.readme-close:hover{background:#2b4052;color:#fff}
+.readme-list{padding:14px 16px 20px;display:flex;flex-direction:column;gap:12px}
+.rq-card{background:#14202b;border:1px solid #2a3946;border-radius:8px;padding:13px 14px}
+.rq-head{display:flex;flex-direction:column;gap:2px;margin-bottom:7px}
+.rq-head strong{color:#7fbef0;font-size:13px}
+.rq-head span{color:#e5edf5;font-size:14.5px;font-weight:600}
+.rq-card p{margin:0 0 10px;color:#bdcad7;font-size:13.5px;line-height:1.55}
+.rq-open{font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:transparent;color:#4fc3f7;border:1px solid #4fc3f7;border-radius:6px;padding:7px 12px}
+.rq-open:hover{background:#0d2f44}
 .muted-file .material-icons{font-size:15px;color:#aab8c5}
 .yaml-icon{color:#cf8fe8!important}
 .explorer-spacer{flex:1}
