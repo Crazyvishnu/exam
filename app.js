@@ -180,7 +180,8 @@ var QUESTIONS = [
    }
   ],
   "image": "q7b-output.svg",
-  "note": "Add http: ^1.2.0 under dependencies in pubspec.yaml. The API used is https://jsonplaceholder.typicode.com/users/1 — its real returned name is “Leanne Graham”."
+  "note": "The API used is https://jsonplaceholder.typicode.com/users/1 — its real returned name is “Leanne Graham”.",
+  "pubspec": "dependencies:\n  flutter:\n    sdk: flutter\n  http: ^1.2.0"
  },
  {
   "id": "8A",
