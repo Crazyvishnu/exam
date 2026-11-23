@@ -1,19 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// Add to pubspec.yaml under dependencies:
-// provider: ^6.1.2
-
-void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => Counter(),
-      child: const MaterialApp(home: CounterApp()),
-    ),
-  );
-}
-
-class Counter extends ChangeNotifier {
+class CounterProvider extends ChangeNotifier {
   int count = 0;
 
   void increment() {
@@ -27,34 +15,54 @@ class Counter extends ChangeNotifier {
   }
 }
 
-class CounterApp extends StatelessWidget {
-  const CounterApp({super.key});
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CounterProvider(),
+      child: MyApp(),
+    ),
+  );
+}
 
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: CounterPage(),
+    );
+  }
+}
+
+class CounterPage extends StatefulWidget {
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Counter App using Provider')),
+      appBar: AppBar(title: Text("Counter App")),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Consumer<Counter>(
-              builder: (context, counter, child) => Text(
-                'Count: ${counter.count}',
-                style: const TextStyle(fontSize: 30),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () =>
-                  Provider.of<Counter>(context, listen: false).increment(),
-              child: const Text('Increase'),
-            ),
-            ElevatedButton(
-              onPressed: () =>
-                  Provider.of<Counter>(context, listen: false).decrement(),
-              child: const Text('Decrease'),
-            ),
-          ],
+        child: Consumer<CounterProvider>(
+          builder: (context, counter, child) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Counter: ${counter.count}",
+                    style: TextStyle(fontSize: 25)),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: counter.increment,
+                  child: Text("Increment"),
+                ),
+                ElevatedButton(
+                  onPressed: counter.decrement,
+                  child: Text("Decrement"),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

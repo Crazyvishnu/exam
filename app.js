@@ -189,11 +189,12 @@ var QUESTIONS = [
   "files": [
    {
     "name": "main.dart",
-    "code": "import 'package:flutter/material.dart';\nimport 'package:provider/provider.dart';\n\n// Add to pubspec.yaml under dependencies:\n// provider: ^6.1.2\n\nvoid main() {\n  runApp(\n    ChangeNotifierProvider(\n      create: (_) => Counter(),\n      child: const MaterialApp(home: CounterApp()),\n    ),\n  );\n}\n\nclass Counter extends ChangeNotifier {\n  int count = 0;\n\n  void increment() {\n    count++;\n    notifyListeners();\n  }\n\n  void decrement() {\n    count--;\n    notifyListeners();\n  }\n}\n\nclass CounterApp extends StatelessWidget {\n  const CounterApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Counter App using Provider')),\n      body: Center(\n        child: Column(\n          mainAxisAlignment: MainAxisAlignment.center,\n          children: [\n            Consumer<Counter>(\n              builder: (context, counter, child) => Text(\n                'Count: ${counter.count}',\n                style: const TextStyle(fontSize: 30),\n              ),\n            ),\n            ElevatedButton(\n              onPressed: () =>\n                  Provider.of<Counter>(context, listen: false).increment(),\n              child: const Text('Increase'),\n            ),\n            ElevatedButton(\n              onPressed: () =>\n                  Provider.of<Counter>(context, listen: false).decrement(),\n              child: const Text('Decrease'),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}\n"
+    "code": "import 'package:flutter/material.dart';\nimport 'package:provider/provider.dart';\n\nclass CounterProvider extends ChangeNotifier {\n  int count = 0;\n\n  void increment() {\n    count++;\n    notifyListeners();\n  }\n\n  void decrement() {\n    count--;\n    notifyListeners();\n  }\n}\n\nvoid main() {\n  runApp(\n    ChangeNotifierProvider(\n      create: (_) => CounterProvider(),\n      child: MyApp(),\n    ),\n  );\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: CounterPage(),\n    );\n  }\n}\n\nclass CounterPage extends StatefulWidget {\n  @override\n  State<CounterPage> createState() => _CounterPageState();\n}\n\nclass _CounterPageState extends State<CounterPage> {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Text(\"Counter App\")),\n      body: Center(\n        child: Consumer<CounterProvider>(\n          builder: (context, counter, child) {\n            return Column(\n              mainAxisAlignment: MainAxisAlignment.center,\n              children: [\n                Text(\"Counter: ${counter.count}\",\n                    style: TextStyle(fontSize: 25)),\n                SizedBox(height: 20),\n                ElevatedButton(\n                  onPressed: counter.increment,\n                  child: Text(\"Increment\"),\n                ),\n                ElevatedButton(\n                  onPressed: counter.decrement,\n                  child: Text(\"Decrement\"),\n                ),\n              ],\n            );\n          },\n        ),\n      ),\n    );\n  }\n}\n"
    }
   ],
   "image": "q8a-output.svg",
-  "note": "Add provider: ^6.1.2 under dependencies in pubspec.yaml."
+  "note": "",
+  "pubspec": "dependencies:\n  flutter:\n    sdk: flutter\n  provider: ^6.1.2"
  },
  {
   "id": "8B",
@@ -318,6 +319,19 @@ function showQuestion(id, scrollTop) {
     pane.appendChild(code);
     ed.appendChild(pane);
   });
+  if (q.pubspec) {
+    var pub = document.createElement("div");
+    pub.className = "pubspec-block";
+    var pubLabel = document.createElement("div");
+    pubLabel.className = "pubspec-label";
+    pubLabel.textContent = "pubspec.yaml \u2014 add under dependencies:";
+    var pubCode = document.createElement("pre");
+    pubCode.className = "pubspec-code";
+    pubCode.textContent = q.pubspec;
+    pub.appendChild(pubLabel);
+    pub.appendChild(pubCode);
+    ed.appendChild(pub);
+  }
   activeFile = 0;
   document.getElementById("crumbFile").textContent = "lib/" + q.files[0].name;
   document.getElementById("mainFileTree").innerHTML = '<span class="file-icon">◆</span> ' + escHtml(q.files[0].name);

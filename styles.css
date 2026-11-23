@@ -72,6 +72,11 @@ button{font-family:Roboto,Arial,sans-serif;cursor:pointer}
 .rq-card p{margin:0 0 10px;color:#bdcad7;font-size:13.5px;line-height:1.55}
 .rq-open{font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;background:transparent;color:#4fc3f7;border:1px solid #4fc3f7;border-radius:6px;padding:7px 12px}
 .rq-open:hover{background:#0d2f44}
+
+/* ---- pubspec block shown below the program (Q8A) ---- */
+.pubspec-block{margin-top:14px;border:1px solid #2c3a46;border-radius:8px;overflow:hidden}
+.pubspec-label{background:#22303d;color:#9fb3c2;font-size:12.5px;font-weight:600;padding:8px 12px;border-bottom:1px solid #2c3a46}
+.pubspec-code{margin:0;padding:12px 14px;background:#0f1922;color:#cfe3f5;font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:13px;line-height:1.6;overflow-x:auto}
 .muted-file .material-icons{font-size:15px;color:#aab8c5}
 .yaml-icon{color:#cf8fe8!important}
 .explorer-spacer{flex:1}
