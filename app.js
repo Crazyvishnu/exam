@@ -241,50 +241,42 @@ function codeHtml(code) {
   }
   return html;
 }
+
+/* ---------- copy to clipboard (clipboard API + fallback) ---------- */
 function copyText(text, btn) {
   function done() {
-    var oldLabel = btn.dataset.label || btn.textContent;
-    btn.dataset.label = oldLabel;
-    btn.textContent = "✓ Copied";
+    var old = btn.dataset.label || btn.textContent;
+    btn.dataset.label = old;
+    btn.textContent = "\u2713 Copied";
     btn.classList.add("done");
-    setTimeout(function () { btn.textContent = oldLabel; btn.classList.remove("done"); }, 1600);
+    setTimeout(function () { btn.textContent = old; btn.classList.remove("done"); }, 1600);
   }
   function fallback() {
     var ta = document.createElement("textarea");
     ta.value = text;
     ta.setAttribute("readonly", "");
     ta.style.position = "fixed"; ta.style.top = "0"; ta.style.opacity = "0";
-    document.body.appendChild(ta); ta.select();
+    document.body.appendChild(ta);
+    ta.select();
     try { document.execCommand("copy"); done(); }
     catch (e) { btn.textContent = "Copy failed"; }
     document.body.removeChild(ta);
   }
-  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done).catch(fallback);
-  else fallback();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(fallback);
+  } else {
+    fallback();
+  }
 }
 function fullCode(q) {
   if (q.files.length === 1) return q.files[0].code;
-  return q.files.map(function (f) { return "// File: " + f.name + "\n" + f.code; }).join("\n");
+  return q.files.map(function (f, i) {
+    return "// \u2500\u2500 File " + (i + 1) + ": " + f.name + " \u2500\u2500\n" + f.code;
+  }).join("\n");
 }
 
+/* ---------- render one question ---------- */
 var current = null;
-var activeFile = 0;
-
-function setActiveFile(index) {
-  if (!current || !current.files[index]) return;
-  activeFile = index;
-  document.querySelectorAll(".editor-tab").forEach(function (tab) {
-    tab.classList.toggle("active", Number(tab.dataset.file) === index);
-  });
-  document.querySelectorAll(".file-pane").forEach(function (pane) {
-    pane.style.display = Number(pane.dataset.file) === index ? "block" : "none";
-  });
-  document.getElementById("crumbFile").textContent = current.files[index].name === "widget_test.dart" ? "test/widget_test.dart" : "lib/" + current.files[index].name;
-  document.getElementById("editorCopyBtn").onclick = function () { copyText(current.files[index].code, this); };
-  document.getElementById("mainFileTree").classList.toggle("active", index === 0);
-  document.getElementById("testFileTree").classList.toggle("active", index === 1);
-}
-
 function showQuestion(id, scrollTop) {
   var q = null, idx = 0;
   for (var i = 0; i < QUESTIONS.length; i++) {
@@ -292,65 +284,52 @@ function showQuestion(id, scrollTop) {
   }
   if (!q) { q = QUESTIONS[0]; idx = 0; }
   current = q;
+
   document.title = "Question " + q.id + " — Flutter Lab Exam";
-  document.getElementById("qpos").textContent = "Question " + q.id + " • " + (idx + 1) + " of " + QUESTIONS.length;
+  document.getElementById("qpos").textContent =
+    "Question " + q.id + " \u2022 " + (idx + 1) + " of " + QUESTIONS.length;
 
   var ed = document.getElementById("editor");
-  var tabBar = document.getElementById("editorTabs");
   ed.innerHTML = "";
-  tabBar.innerHTML = "";
-  q.files.forEach(function (f, fileIndex) {
-    var tab = document.createElement("button");
-    tab.className = "editor-tab" + (fileIndex === 0 ? " active" : "");
-    tab.type = "button";
-    tab.dataset.file = String(fileIndex);
-    tab.innerHTML = '<span class="dart-file-dot">◆</span><span>' + escHtml(f.name) + '</span>';
-    tab.addEventListener("click", function () { setActiveFile(fileIndex); });
-    tabBar.appendChild(tab);
-
-    var pane = document.createElement("div");
-    pane.className = "file-pane";
-    pane.dataset.file = String(fileIndex);
-    pane.style.display = fileIndex === 0 ? "block" : "none";
-    var code = document.createElement("div");
-    code.className = "code";
-    code.innerHTML = codeHtml(f.code);
-    pane.appendChild(code);
-    ed.appendChild(pane);
+  q.files.forEach(function (f) {
+    var tab = document.createElement("div");
+    tab.className = "filetab";
+    var nm = document.createElement("span");
+    nm.className = "fname";
+    nm.textContent = "lib/" + f.name;
+    var cb = document.createElement("button");
+    cb.className = "mini-copy"; cb.type = "button"; cb.textContent = "Copy";
+    cb.addEventListener("click", function () { copyText(f.code, cb); });
+    tab.appendChild(nm); tab.appendChild(cb);
+    var pre = document.createElement("div");
+    pre.className = "code";
+    pre.innerHTML = codeHtml(f.code);
+    ed.appendChild(tab); ed.appendChild(pre);
   });
-  activeFile = 0;
-  document.getElementById("crumbFile").textContent = "lib/" + q.files[0].name;
-  document.getElementById("mainFileTree").innerHTML = '<span class="file-icon">◆</span> ' + escHtml(q.files[0].name);
-  document.getElementById("mainFileTree").classList.add("active");
-  var testTree = document.getElementById("testFileTree");
-  testTree.hidden = q.files.length < 2;
-  document.getElementById("testFolderRoot").hidden = q.files.length < 2;
-  if (q.files.length > 1) testTree.innerHTML = '<span class="file-icon test-icon">◇</span> ' + escHtml(q.files[1].name);
-  testTree.classList.remove("active");
-  testTree.style.display = q.files.length > 1 ? "flex" : "none";
 
   var note = document.getElementById("pubNote");
-  if (q.note) { note.hidden = false; note.textContent = q.note; }
-  else { note.hidden = true; note.textContent = ""; }
+  if (q.note) { note.hidden = false; note.innerHTML = q.note; }
+  else { note.hidden = true; note.innerHTML = ""; }
 
   var img = document.getElementById("outputImg");
   img.src = "images/" + q.image;
   img.alt = "Expected output for Question " + q.id;
+
   document.getElementById("qHeading").textContent = "Question " + q.id;
   document.getElementById("qTitle").textContent = q.title;
   document.getElementById("qText").textContent = q.question;
 
   var nav = document.getElementById("qnav").children;
-  for (var j = 0; j < nav.length; j++) nav[j].classList.toggle("active", QUESTIONS[j].id === q.id);
-
-  document.getElementById("consoleContent").innerHTML =
-    '<span class="success-tick">✓</span> Source loaded for Question ' + q.id + '. No live Flutter compilation is performed on this page.';
+  for (var j = 0; j < nav.length; j++) {
+    nav[j].classList.toggle("active", QUESTIONS[j].id === q.id);
+  }
   if (history.replaceState) {
     try { history.replaceState(null, "", "#q=" + q.id); } catch (e) {}
   }
-  if (scrollTop) window.scrollTo({ top: 0, behavior: "auto" });
+  if (scrollTop) window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
 }
 
+/* ---------- build bottom nav ---------- */
 (function buildNav() {
   var nav = document.getElementById("qnav");
   QUESTIONS.forEach(function (q) {
@@ -362,57 +341,23 @@ function showQuestion(id, scrollTop) {
 })();
 
 document.getElementById("runBtn").addEventListener("click", function () {
-  document.getElementById("output").scrollIntoView({ behavior: "smooth", block: "nearest" });
-  document.getElementById("consoleContent").innerHTML =
-    '<span class="success-tick">✓</span> Expected-output reference loaded for Question ' + current.id + '. To execute the Dart code, open it in DartPad or Flutter.';
+  var sec = document.getElementById("output");
+  sec.scrollIntoView({ behavior: "smooth", block: "start" });
+  sec.classList.add("flash");
+  setTimeout(function () { sec.classList.remove("flash"); }, 1200);
+});
+document.getElementById("qBtn").addEventListener("click", function () {
+  var sec = document.getElementById("questionSec");
+  sec.scrollIntoView({ behavior: "smooth", block: "start" });
+  sec.classList.add("flash");
+  setTimeout(function () { sec.classList.remove("flash"); }, 1200);
 });
 document.getElementById("copyBtn").addEventListener("click", function () {
   if (current) copyText(fullCode(current), this);
 });
-document.getElementById("reloadBtn").addEventListener("click", function () {
-  if (current) showQuestion(current.id, false);
-});
-document.getElementById("editorCopyBtn").addEventListener("click", function () {
-  if (current) copyText(current.files[activeFile].code, this);
-});
-document.getElementById("mainFileTree").addEventListener("click", function () { setActiveFile(0); });
-document.getElementById("testFileTree").addEventListener("click", function () { setActiveFile(1); });
-document.getElementById("questionToggle").addEventListener("click", function () {
-  var drawer = document.getElementById("questionSec");
-  drawer.classList.toggle("collapsed");
-  var open = !drawer.classList.contains("collapsed");
-  this.textContent = open ? "⌃" : "⌄";
-  this.setAttribute("aria-expanded", String(open));
-});
-document.getElementById("previewToggle").addEventListener("click", function () {
-  var preview = document.querySelector(".preview-column");
-  var workspace = document.querySelector(".workspace");
-  preview.classList.toggle("collapsed");
-  workspace.classList.toggle("preview-hidden");
-  this.textContent = preview.classList.contains("collapsed") ? "‹" : "›";
-});
-document.getElementById("expandPreview").addEventListener("click", function () {
-  document.getElementById("output").classList.toggle("expanded");
-});
-document.querySelector(".device-select").addEventListener("click", function () {
-  var frame = document.querySelector(".device-frame");
-  frame.classList.toggle("desktop");
-  this.innerHTML = frame.classList.contains("desktop") ? "▭　Web　⌄" : "▣　Mobile　⌄";
-});
-document.querySelectorAll(".console-tab").forEach(function (tab, index) {
-  tab.addEventListener("click", function () {
-    document.querySelectorAll(".console-tab").forEach(function (t) { t.classList.remove("active"); });
-    tab.classList.add("active");
-    if (index === 1) {
-      document.getElementById("consoleContent").innerHTML = "Console output is not generated here. Run the source in DartPad or Flutter to view runtime logs.";
-    } else {
-      document.getElementById("consoleContent").innerHTML = '<span class="success-tick">✓</span> Static source viewer • no analyzer connected.';
-    }
-  });
-});
 
+/* ---------- start ---------- */
 var startId = "1A";
-var match = location.hash.match(/q=([1-8][AB])/);
-if (match) startId = match[1];
-document.getElementById("questionSec").classList.add("collapsed");
+var m = location.hash.match(/q=([1-8][AB])/);
+if (m) startId = m[1];
 showQuestion(startId, false);
